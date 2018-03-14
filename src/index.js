@@ -3,7 +3,19 @@
 const createEnumerableProperty = () => {};
 const createNotEnumerableProperty = () => {};
 const createProtoMagicObject = () => {};
-const incrementor = () => {};
+let value=0;
+const incrementor = () => {
+    let inc = function () {
+        value++
+        return inc
+    }
+    inc.valueOf = function () {
+        value++
+        return value
+    };
+    return inc
+
+};
 const asyncIncrementor = () => {};
 const createIncrementer = () => {};
 
